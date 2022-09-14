@@ -117,6 +117,9 @@ Jika dirasa aplikasi sudah berjalan dan terlihat semestinya. Hal selanjutnya yan
 
 
 **Sumber Referensi:**
+
 Dokumentasi Django - https://docs.djangoproject.com/id/4.1/
+
 Slides Week 3 MTV Django Architecture - https://scele.cs.ui.ac.id/pluginfile.php/160675/mod_resource/content/1/Slides-3%20MTV%20Django%20Architecture.pdf
+
 Tutorial Lab 1 PBP Ganjil 2023 - https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-1

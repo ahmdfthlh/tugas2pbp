@@ -8,6 +8,7 @@
 ## Bagan ---
 **Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html**
 
+![bagan-tugas2](https://user-images.githubusercontent.com/92851260/190225519-1c29bff4-64c8-4923-8e6f-c04b947dcc3a.jpg)
 
 ## Virtual Environment ---
 **Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**

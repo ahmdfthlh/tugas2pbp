@@ -114,3 +114,8 @@ Jika dirasa aplikasi sudah berjalan dan terlihat semestinya. Hal selanjutnya yan
 4. Membuat 2 variabel repository secret yakni HEROKU_API_KEY dengan value API Key yang telah disalin dan HEROKU_API_NAME dengan value nama aplikasi yang baru saya buat di Heroku pada tahap 1. Dan simpan kedua variabel tersebut.
 5. Buka Actions yang di halaman utama repositori dan jalankan ulang workflow yang mungkin pertama kali dilihat akan gagal.
 6. Setelah berhasil, aplikasi Django pada kali ini telah berhasil saya bangun dan dapat diakses oleh siapapun melalui link https://tugas2fattah.herokuapp.com/katalog/
+
+
+**Sumber Referensi:**
+Dokumentasi Django - https://docs.djangoproject.com/id/4.1/
+Slides Week 3 MTV Django Architecture - https://scele.cs.ui.ac.id/pluginfile.php/160675/mod_resource/content/1/Slides-3%20MTV%20Django%20Architecture.pdf

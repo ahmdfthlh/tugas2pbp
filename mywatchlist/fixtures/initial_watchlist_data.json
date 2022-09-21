@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":1,
+        "fields":{
+            "watched":"Watched",
+            "title":"Top Gun: Maverick",
+            "rating":"4",
+            "release_date":"2019, 20 June",
+            "review":"Kureng"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":2,
+        "fields":{
+            "watched":"Not yet",
+            "title":"Uncharted",
+            "rating":"3",
+            "release_date":"2022, 18 February",
+            "review":"Rada bosenin banget gasih jadi rada kureng"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":3,
+        "fields":{
+            "watched":"Watched",
+            "title":"Doctor Strange in the Multiverse of Madness",
+            "rating":"5",
+            "release_date":"2022, 6 May",
+            "review":"GOKSSS! no cap"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":4,
+        "fields":{
+            "watched":"Watched",
+            "title":"Sonic the Hedgehog 2",
+            "rating":"4",
+            "release_date":"2022, 8 April",
+            "review":"Gemes banget sama visualnya riil"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":5,
+        "fields":{
+            "watched":"Not yet",
+            "title":"Thor: Love and Thunder",
+            "rating":"2",
+            "release_date":"2022, 9 July",
+            "review":"Katanya sih the worst marvel movie.."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":6,
+        "fields":{
+            "watched":"Watched",
+            "title":"The Adam Project",
+            "rating":"4",
+            "release_date":"2022, 14 March",
+            "review":"Plotnya menariqueee, worth to watch!"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":7,
+        "fields":{
+            "watched":"Watched",
+            "title":"The Medium",
+            "rating":"3",
+            "release_date":"2021, 20 October",
+            "review":"Film Thai tapi vibesnya berasa di Indo mantap"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":8,
+        "fields":{
+            "watched":"Watched",
+            "title":"Minions: The Rise of Gru",
+            "rating":"4",
+            "release_date":"2019, 20 June",
+            "review":"Gemas banananana"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":9,
+        "fields":{
+            "watched":"Watched",
+            "title":"The Gray Man",
+            "rating":"2",
+            "release_date":"2022, 22 July",
+            "review":"Karena directornya russo brothers, jadi ekspektasinya tinggi banget. eh taunya biasa ajah ah"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":10,
+        "fields":{
+            "watched":"Watched",
+            "title":"Red Notice",
+            "rating":"3",
+            "release_date":"2021, 4 November",
+            "review":"Gal gadot nih bos"
+        }
+    }
+]

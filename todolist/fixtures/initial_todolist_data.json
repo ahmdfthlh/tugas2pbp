@@ -1,0 +1,12 @@
+[
+    {
+        "model":"todolist.task",
+        "pk":1,
+        "fields":{
+            "user":"",
+            "date":"",
+            "title":"",
+            "description":""
+        }
+    }
+]

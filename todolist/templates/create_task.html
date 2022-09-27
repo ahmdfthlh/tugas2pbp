@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class = "login">
+
+    <h1>Mau Ngerjain Apa?</h1>
+
+    <form method="POST">  
+        {% csrf_token %}
+        <table>
+            <label for="judul">Judul:</label>
+            <br>
+            <input id="judul" type="text" name="judul" style="width: 350px">
+            <br>
+            <label for="deskripsi">Deskripsi:</label>
+            <br>
+            <input id="deskripsi" type="text" name="deskripsi" style="width: 350px; height: 75px">
+            <br>
+        </table> 
+        <button type="submit">Tambah</button><br>
+    </form> 
+
+    <button type="submit"><a href="{% url 'todolist:show_todolist' %}">Kembali</a></button><br>
+    
+</div>
+
+{% endblock content %}

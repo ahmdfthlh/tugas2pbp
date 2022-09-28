@@ -1,3 +1,62 @@
+<style>
+    .login {
+    width: 500px;
+    padding: 10% 0 0;
+    margin: auto;
+    }
+
+    h1{
+        color: black;
+    }
+
+    .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .form input {
+        font-family: "Lato", sans-serif;
+        outline: 0;
+        background: #e7e4e4;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .form td .button {
+        font-family: "Lato", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #ececec;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #000000;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+    .form .button:hover,.form .button:active,.form .button:focus {
+        background: #3d3d3d;
+        color: #e7e4e4;
+    }
+
+    body {
+        background: #eeeeee; 
+        font-family: "Lato", sans-serif;     
+    }
+</style>
 {% extends 'base.html' %}
 
 {% block meta %}
@@ -7,39 +66,39 @@
 {% block content %}
 
 <div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+    <div class="form">
+        <h1>Login</h1>
+    
+        <form class="registration-form" method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                </tr>
+    
+                <tr>
+                    <td></td>
+                    <td><input type="submit" class="button" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+    
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+    </div>
 </div>
 
-{% endblock content %}
+{% endblock content %}\

@@ -1,32 +1,107 @@
+<style>
+    .newtask {
+    width: 500px;
+    padding: 10% 0 0;
+    margin: auto;
+    }
+
+    h1{
+        color: black;
+    }
+
+    .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .form input {
+        font-family: "Lato", sans-serif;
+        outline: 0;
+        background: #e7e4e4;
+        width: 200px;
+        border: 0;
+        margin: 0 10 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .form .button {
+        font-family: "Lato", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #ececec;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #000000;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+    .form .button:hover,.form .button:active,.form .button:focus {
+        background: #3d3d3d;
+        color: #e7e4e4;
+    }
+
+    body {
+        background: #eeeeee; 
+        font-family: "Lato", sans-serif;     
+    }
+
+
+</style>
+
+
 {% extends 'base.html' %}
 
 {% block meta %}
-<title>Login</title>
+<title>Create Task</title>
 {% endblock meta %}
 
 {% block content %}
 
-<div class = "login">
-
-    <h1>Mau Ngerjain Apa?</h1>
-
-    <form method="POST">  
-        {% csrf_token %}
-        <table>
-            <label for="judul">Judul:</label>
-            <br>
-            <input id="judul" type="text" name="judul" style="width: 350px">
-            <br>
-            <label for="deskripsi">Deskripsi:</label>
-            <br>
-            <input id="deskripsi" type="text" name="deskripsi" style="width: 350px; height: 75px">
-            <br>
-        </table> 
-        <button type="submit">Tambah</button><br>
-    </form> 
-
-    <button type="submit"><a href="{% url 'todolist:show_todolist' %}">Kembali</a></button><br>
+<div class = "newtask">
+    <div class="form">
+        <h1>Mau Ngerjain Apa?</h1>
     
+        <form method="POST">  
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="judul">Judul:</label></td>
+                    <td><input id="judul" type="text" name="judul" style="width: 300px"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="deskripsi">Deskripsi:</label></td>
+                    <td><input id="deskripsi" type="text" name="deskripsi" style="width: 300px; height: 75px"></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    
+                </tr>
+            </table> 
+        </form> 
+        <button type="submit">Tambah</button>
+        <br>
+        <br>
+        <button type="submit"><a href="{% url 'todolist:show_todolist' %}">Kembali</a></button>
+    
+    </div>
+
 </div>
 
 {% endblock content %}

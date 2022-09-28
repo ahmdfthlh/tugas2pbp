@@ -1,4 +1,3 @@
-from turtle import title
 from django.shortcuts import render
 from todolist.models import Task
 from django.shortcuts import redirect

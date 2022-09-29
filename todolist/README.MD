@@ -58,3 +58,7 @@ Data yang disubmisi oleh pengguna melalui HTML form diambil dari kode yang ada d
 9. Melakukan routing pada `urls.py` dengan setiap fungsi yang dibuat pada `views.py` agar dapat digunakan.
 
 10. Melakuakn git add, commit, dan push pada github dengan repositori yang masih sama dengan tugas 2. Sehingga aplikasi heroku yang masih dipakai masih sama.
+
+11. Membuat dua akun pada aplikasi heroku dengan masing-masing memiliki tiga data dummy, berikut informasi dua akun tersebut:
+    1) username: amdfattah ; password: ayambebek
+    2) username: punyafattah ; password: ayambebek

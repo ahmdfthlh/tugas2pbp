@@ -58,3 +58,53 @@ Data yang disubmisi oleh pengguna melalui HTML form diambil dari kode yang ada d
 9. Melakukan routing pada `urls.py` dengan setiap fungsi yang dibuat pada `views.py` agar dapat digunakan.
 
 10. Melakuakn git add, commit, dan push pada github dengan repositori yang masih sama dengan tugas 2. Sehingga aplikasi heroku yang masih dipakai masih sama.
+
+# README.md - Tugas 5 PBP 
+
+## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+
+- **Inline CSS** yakni langsung menuliskan kode CSS ke dalam atribut elemen HTML dengan menambahkan tag atribut `<style>`. Kelebihan dari style ini dapat langsung mengubah style setiap elemen tanpa harus membuat semacam selector. Sedangkan kekurangannya adalah karena biasanya setiap elemen di HTML memiliki style yang berbeda maka harus menulis ulang style-nya di setiap atribut HTML tersebut
+
+- **Internal CSS** yakni kode CSS yang dibuat untuk styling HTML dituliskan di dalam satu file HTML yang sama. Kode CSS pada style ini dituliskan di luar tag kode HTML dengan menggunakan tag `<style>`. Kelebihan dari style ini dapat merubah kode CSS dalam satu file sehingga lebih cepat jika ingin merubah design style. Sedangkan kekurangannya adalah kode dalam HTMl menjadi tidak rapih karena langsung terdapat kode CSS dan kode HTML di satu tempat, bayangkan jika jumlah kode CSS bisa mencapai 1000 line sendiri.
+
+- **External CSS** yakni kumpulan kode CSS yang dibuat di luar file HTML. Jadi file HTML dan CSS menjadi kedua file yang terpisah. Kelebihannya membuat file HTML menjadi lebih rapih dan terstruktur karena tidak tercampur dengan kode CSS. Kekurangannya mungkin ketika file CSS yang diambil tidak tersedia sehingga HTML yang nantinya akan ditampilkan tidak memiliki style.
+
+## Jelaskan tag HTML5 yang kamu ketahui.
+
+`<title>` -> membuat judul dari sebuah halaman
+
+`<body>` -> sebagai tubuh dari sebuah halaman
+
+`<p>` -> untuk membuat paragraf
+
+`<table>` -> untuk membuat format table
+
+`<tr>` -> membuat baris dalam sebuah table
+
+`<td>` -> membuat sel dalam sebuah table
+
+dan lain-lainnya.
+
+
+## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+
+1. Tag selector
+
+Selector ini ditunjuk secara langsung dari tag html yang ada.
+
+2. ID selector
+
+Cara menunjuk selector ini berdasarkan id yang dipasangkan dari sebuah tag HTML
+
+3. Class selector
+
+Cara menunjuk selector ini berdasarkan class yang dipasangkan dari sebuah tag HTML
+
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+1. Meng-import link eksternal bootstrap agar bootstrap dapat berfungsi
+
+2. Merubah penampilan todolist  yang sebelumnya dalam format table menjadi dalam bentuk card.
+
+3. Mengimplementasikan styling bootstrap sesuai style yang kita inginkan.

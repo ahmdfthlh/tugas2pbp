@@ -1,164 +1,61 @@
 <style>
-    /*   color variables */
-    /*   border radius */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    .btn{
+        color: white;
     }
-    
-    body {
-        font-family: Mukta, sans-serif;
-        height: 75vh;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        color: #4f546c;
-        font-size: 1rem;
-        background-color: #f9fbff;
-        /* padding-top: 80px; */
-    }
-
-    table {
-        border-collapse: collapse;
-        box-shadow: 0 5px 10px #e1e5ee;
-        background-color: white;
-        text-align: center;
-        overflow: hidden;
-    }
-    
-    table thead {
-        box-shadow: 0 5px 10px #e1e5ee;
-    }
-    table th {
-        padding: 1rem 2rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-        font-size: 0.7rem;
-        font-weight: 900;
-    }
-    table td {
-        padding: 1rem 2rem;
-        text-decoration: none;
-    }
-    table a {
-        text-decoration: none;
-        color: #2962ff;
-    }
-    table .status {
-        border-radius: 0.2rem;
-        background-color: red;
-        padding: 0.2rem 1rem;
-        text-align: center;
-    }
-    table .status-pending {
-        background-color: #fff0c2;
-        color: #a68b00;
-    }
-    table .status-paid {
-        background-color: #c8e6c9;
-        color: #388e3c;
-    }
-    table .status-unpaid {
-        background-color: #ffcdd2;
-        color: #c62828;
-    }
-    table .amount {
-        text-align: right;
-    }
-    table tr:nth-child(even) {
-        background-color: #f4f6fb;
-    }
-    
-    .btn {
-        text-decoration: none;
-        padding: 10px 10px;
-        font-size: 1.1rem;
-        position: relative;
-    }
-    
-    .btn1, .btn {
-        text-decoration: none;
-        background: rgb(220, 220, 220);
-        color: rgb(0, 0, 0);
-        border-radius: 30px;
-        transition: transform 0.3s ease; 
-    }
-    
-    .btn1::after, .btn1::before{
-        content: "";
-        position: absolute;
-        opacity: 0.3;
-        background: #000;
-        border-radius: inherit;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        bottom: 0;
-        z-index: -1;
-        transition: transform 0.3s ease;
-    }
-    
-    .btn-1:hover {
-        transform: translate(-12px, 12px);
-    }
-    
-    .btn1:hover::after{
-        transform: translate(6px, 6px);   
-    }
-    .btn1:hover::before{
-        transform: translate(12px, 12px);   
-    }
-
 </style>
 
 {% extends 'base.html' %}
+{% block meta %}
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock meta %}
 {% block content %}
 
-<html>
-    <head>
-        <h2>To-Do List</h2>
-        <p>Username: {{user.username}}</p>
-    </head>
-    
+<html>    
     <body>
-        <button class="btn btn1"><a href="{% url 'todolist:create_task' %}">Add New Task</a></button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Tanggal Pembuatan</th>
-                    <th>Judul</th>
-                    <th>Deskripsi</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
+        <body>
+            <div class="d-flex justify-content-center mt-5 mb-5 text-center text-capitalize">
+                <h1>Hello {{user.username}}, <br>Here's Your To Do List!</h1>
+            </div>
+            <div class="d-flex justify-content-center ">
+                <button type="button" class="btn btn-primary mx-2"><a href="{% url 'todolist:create_task' %}" style="color: white; text-decoration: none;">Add New Task</a></button>
+                <br>
+                <button type="button" class="btn btn btn-warning"><a href="{% url 'todolist:logout' %}" style="color: white; text-decoration: none;">Logout</a></button>
+            </div>
+            <br>
+            <br>
+            <div class="row row-cols-md-3 mx-auto justify-content-center">
                 {% for task in list_of_task %}
-                    <tr>
-                        <td>{{task.date}}</td>
-                        <td>{{task.title}}</td>
-                        <td>{{task.description}}</td>
-
-                        {% if task.status == True %}
-                            <td>Selesai</td>
-                        {% else %}
-                            <td>Belum Selesai</td>
-                        {% endif %}
-                        <td>
-                            <a href="delete/{{ task.title }}"><button type="submit" class="btn btn-delete">Hapus Task</button></a>
+                <div class="col-auto mb-3">
+                    <div  class="card border-primary mx-auto" style="width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">{{task.title}}</h3>
+                            <h6 class="card-text"><small class="text-muted">{{task.date}}</small></h6>
+                            <p class="card-text">{{task.description}}</p>
+                            <p class="card-text">
+                                {% if task.status == True %}
+                                Selesai
+                                {% else %}
+                                Belum Selesai
+                                {% endif %}
+                            </p>
+                            <a href="delete/{{ task.title }}"><button type="submit" class="btn btn-danger">Hapus Task</button></a>
                             <a href="update/{{ task.title }}"><button type="submit" class="btn btn-success ms-1">Selesai</button></a>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-            </tbody>    
-        </table>
-        <button class="btn btn2"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+            </div>  
+            <br>
+            <br>
+            <div class="d-flex justify-content-center">
+            </div>
     </body>
     
     
     
+    </html>
     {% endblock content %}
-</html>

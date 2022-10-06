@@ -59,6 +59,7 @@ Data yang disubmisi oleh pengguna melalui HTML form diambil dari kode yang ada d
 
 10. Melakuakn git add, commit, dan push pada github dengan repositori yang masih sama dengan tugas 2. Sehingga aplikasi heroku yang masih dipakai masih sama.
 
+<<<<<<< HEAD
 # README.md - Tugas 5 PBP 
 
 ## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
@@ -108,3 +109,8 @@ Cara menunjuk selector ini berdasarkan class yang dipasangkan dari sebuah tag HT
 2. Merubah penampilan todolist  yang sebelumnya dalam format table menjadi dalam bentuk card.
 
 3. Mengimplementasikan styling bootstrap sesuai style yang kita inginkan.
+=======
+11. Membuat dua akun pada aplikasi heroku dengan masing-masing memiliki tiga data dummy, berikut informasi dua akun tersebut:
+    1) username: amdfattah ; password: ayambebek
+    2) username: punyafattah ; password: ayambebek
+>>>>>>> ca1536955020a2a6b73581e9ccc61d7801121373

@@ -18,44 +18,127 @@
     <body>
         <body>
             <div class="d-flex justify-content-center mt-5 mb-5 text-center text-capitalize">
-                <h1>Hello {{user.username}}, <br>Here's Your To Do List!</h1>
+                <h1>Hello, {{user.username}}! <br>Here's Your To-Do List</h1>
             </div>
             <div class="d-flex justify-content-center ">
-                <button type="button" class="btn btn-primary mx-2"><a href="{% url 'todolist:create_task' %}" style="color: white; text-decoration: none;">Add New Task</a></button>
+                
+                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add New Task</button>
                 <br>
                 <button type="button" class="btn btn btn-warning"><a href="{% url 'todolist:logout' %}" style="color: white; text-decoration: none;">Logout</a></button>
             </div>
             <br>
             <br>
-            <div class="row row-cols-md-3 mx-auto justify-content-center">
-                {% for task in list_of_task %}
-                <div class="col-auto mb-3">
-                    <div  class="card border-primary mx-auto" style="width: 18rem;">
-                        <div class="card-body">
-                            <h3 class="card-title">{{task.title}}</h3>
-                            <h6 class="card-text"><small class="text-muted">{{task.date}}</small></h6>
-                            <p class="card-text">{{task.description}}</p>
-                            <p class="card-text">
-                                {% if task.status == True %}
-                                Selesai
-                                {% else %}
-                                Belum Selesai
-                                {% endif %}
-                            </p>
-                            <a href="delete/{{ task.title }}"><button type="submit" class="btn btn-danger">Hapus Task</button></a>
-                            <a href="update/{{ task.title }}"><button type="submit" class="btn btn-success ms-1">Selesai</button></a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>  
+
+            <!-- show card to-do list -->
+            <div class="row row-cols-md-3 mx-auto justify-content-center" id="card_todo"></div>
             <br>
             <br>
+            
             <div class="d-flex justify-content-center">
+                <form action="" method="POST" id="addTask">
+                    {% csrf_token %}
+                    <table>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="staticBackdropLabel">💡Add Your New Task</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="judul">Judul:</label>
+                                    <br>
+                                    <input id="judul" type="text" name="judul" style="width: 450px" placeholder="ex: Tugas 5 PBP">
+                                    <br>
+                                    <br>
+                                    <label for="deskripsi">Deskripsi:</label>
+                                    <br>
+                                    <input id="deskripsi" type="text" name="deskripsi" style="width: 450px; height: 50px;" placeholder="ex: deadline jam 8 malam">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary" onclick="new_task()" data-bs-dismiss="modal">Submit</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </table>    
+                </form>
+            
             </div>
     </body>
-    
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function show_todo(){
+            let todo="";
+            $.ajax({
+                url: "{% url 'todolist:show_json' %}",
+                type: "GET",
+                dataType: "json",
+                success: function(alldata){
+                    for (data of alldata){  
+                        todo += `
+                        <div class="col-auto mb-3">
+                            <div class="card border-primary mx-auto" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h3 class="card-title">${data.fields.title}</h3>
+                                    <h6 class="card-text"><small class="text-muted">${data.fields.date}</small></h6>
+                                    <p class="card-text">${data.fields.description}</p>
+                                    <p class="card-text">${data.fields.status ? "✅ Selesai" : "❌ Belum Selesai"}</p>
+                                    <a href="update/${data.pk}"><button type="submit" class="btn btn-success ms-1">Ubah Status</button></a>
+                                    <a href="delete/${data.pk}"><button type="submit" class="btn btn-danger">Hapus</button></a>
+                                </div>
+                            </div>
+                        </div>`;
+                        $('#card_todo').html(todo)
+                    }
+                },
+                error: function(alldata) {
+                    console.log("error")
+                }
+            })
+        }
+
+        function new_task(){
+            event.preventDefault();
+            $.ajax ({
+                url: "{% url 'todolist:create_task_ajax' %}",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    title:$("#judul").val(),
+                    description:$("#deskripsi").val(),
+                    csrfmiddlewaretoken: "{{ csrf_token }}"
+                },
+                success: function(data){
+                    show_todo();
+                    // clearing form after submission
+                    const inputs = document.querySelectorAll('#judul, #deskripsi');
+                    inputs.forEach(input => {
+                        input.value = '';
+                    });
+                },
+            });   
+        }
+        
+        function delete_task(pk){
+            $.ajax({
+                url: `/todolist/delete/${pk}`,
+                type: "DELETE",
+                success: function(data) {
+                    $(`#${pk}`).remove()
+                    show_todo()
+                }
+            })
+        }
+
+        $(document).ready(function () {
+            show_todo();
+        })
+    </script>
+
+
     
     </html>
     {% endblock content %}
